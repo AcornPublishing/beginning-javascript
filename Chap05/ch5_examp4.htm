@@ -1,0 +1,23 @@
+<HTML>
+<BODY>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function linkSomePage_onclick()
+{
+   alert('이 링크를 눌러도 다른 페이지로 이동하지 않습니다');
+   return false;
+}
+
+</SCRIPT>
+
+<A HREF="somepage.htm" NAME="linkSomePage">
+   Click Me
+</A>
+
+<SCRIPT LANGUAGE=JavaScript>
+   window.document.links[0].onclick = linkSomePage_onclick;
+</SCRIPT>
+
+</BODY>
+</HTML>

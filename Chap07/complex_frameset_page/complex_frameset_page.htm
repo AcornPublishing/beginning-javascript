@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>복잡한 프레임셋 페이지</TITLE>
+<SCRIPT LANGUAGE=JavaScript>
+
+var pagesVisited = new Array();
+
+function returnPagesVisited()
+{
+   var returnValue = "지금까지 열어본 페이지는 다음과 같습니다.\n";
+   var pageVisitedIndex;
+   var numberOfPagesVisited = pagesVisited.length;
+   for (pageVisitedIndex = 0; pageVisitedIndex < numberOfPagesVisited;
+      pageVisitedIndex++)
+   {
+      returnValue = returnValue + pagesVisited[pageVisitedIndex] + "\n";
+   }
+
+   return returnValue;
+}
+
+function addPage(fileName)
+{
+   var fileNameStart = fileName.lastIndexOf("/") + 1;
+   fileName = fileName.substr(fileNameStart);
+   pagesVisited[pagesVisited.length] = fileName;
+
+   return true;
+}
+
+</SCRIPT>
+
+</HEAD>
+<FRAMESET COLS="200,*">
+   <FRAME NAME=fraMenu SRC="menu_page.htm">
+   <FRAME NAME=fraMain SRC="main_page.htm">
+</FRAMESET>
+</HTML>

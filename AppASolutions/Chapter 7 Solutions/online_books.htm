@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<TITLE>온라인 서점</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+var detailsWindow;
+var basketWindow;
+
+var stockItems = new Array();
+
+stockItems[100] = new Array();
+stockItems[100][0] = "Beginning Active Server Pages";
+stockItems[100][1] = "$39.99";
+stockItems[100][2] = 0;
+
+stockItems[101] = new Array();
+stockItems[101][0] = "Professonal JavaScript";
+stockItems[101][1] = "$46.99";
+stockItems[101][2] = 0;
+
+function removeItem(stockId)
+{
+   stockItems[stockId][2] = 0;
+   alert("품목을 삭제하였습니다");
+   showBasket();
+   return false;
+}
+
+function showDetails(bookURL)
+{
+   detailsWindow = window.open(bookURL,"bookDetails","width=400,height=500");
+   detailsWindow.focus();
+   return false;
+}
+
+function addBookToBasket(stockId)
+{
+   stockItems[stockId][2] = 1;
+   alert("품목을 성공적으로 추가하였습니다");
+   detailsWindow.close();
+}
+
+function showBasket()
+{
+   basketWindow = window.open('ShoppingBasket.htm','shoppingBasket','width=400,height=350');
+   basketWindow.document.open();
+   var basketItem;
+   var containsItems = false;
+   basketWindow.document.write("<H4>고객님의 장바구니에는 다음 품목이 들어있습니다 :</H4>");
+
+   for (basketItem in stockItems)
+   {
+      if (stockItems[basketItem][2] > 0)
+      {
+         basketWindow.document.write(stockItems[basketItem][0] + " at ");
+         basketWindow.document.write(stockItems[basketItem][1]);
+         basketWindow.document.write("&nbsp&nbsp&nbsp&nbsp");
+         basketWindow.document.write("<A href='' onclick='return " + "window.opener.removeItem(" + basketItem + ")'>");
+         basketWindow.document.write("품목 삭제</A><BR>");
+         containsItems = true;
+      }
+   }
+
+   if (containsItems == false)
+   {
+      basketWindow.document.write("<H4>아무 품목도 없습니다</H4>");
+   }
+   basketWindow.document.close();
+   basketWindow.focus();
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<H2 ALIGN=center>온라인 서점</H2>
+<FORM NAME=form1>
+<INPUT TYPE="button" VALUE="장바구니 보기" onclick="showBasket()" NAME=butShowBasket>
+</FORM>
+<P>
+자세한 정보를 보시려면 아래 그림을 클릭하세요
+</P>
+<STRONG>Beginning Active Server Pages 3</STRONG>
+<BR>
+<A NAME="begASPLink" HREF="" onclick="return showDetails('beg_asp3_details.htm')">
+<IMG SRC="beg_asp3.gif" BORDER=0>
+</A>
+<BR><BR>
+<STRONG>Professional JavaScript</STRONG>
+<BR>
+<A NAME="profJSLink" HREF="" onclick="return showDetails('prof_js_details.htm')">
+<IMG SRC="prof_js.gif" border=0>
+</A>
+</BODY>
+</HTML>

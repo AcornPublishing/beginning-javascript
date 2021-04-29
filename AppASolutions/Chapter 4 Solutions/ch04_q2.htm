@@ -1,0 +1,20 @@
+<HTML>
+<BODY>
+<SCRIPT LANGUAGE=JavaScript>
+
+var inputName = "";
+var namesArray = new Array();
+
+while ( (inputName = prompt("이름을 입력하세요","")) != "" )
+{
+   namesArray[namesArray.length] = inputName;
+}
+
+namesArray.sort();
+
+var namesList = namesArray.join("<BR>")
+document.write(namesList);
+
+</SCRIPT>
+</BODY>
+</HTML>

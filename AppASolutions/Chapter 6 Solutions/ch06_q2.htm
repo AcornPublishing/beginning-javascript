@@ -1,0 +1,135 @@
+<HTML>
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE=JavaScript>
+var CompItems = new Array();
+CompItems[100] = 1000;
+CompItems[101] = 1250;
+CompItems[102] = 1500;
+
+CompItems[200] = 35;
+CompItems[201] = 65;
+CompItems[202] = 95;
+
+CompItems[300] = 50;
+CompItems[301] = 75;
+CompItems[302] = 100;
+
+CompItems[400] = 10;
+CompItems[401] = 15;
+CompItems[402] = 25;
+
+function updateOrderDetails()
+{
+   var total = 0;
+   var orderDetails = "";
+   var formElement;
+   formElement = document.form1.cboProcessor[document.form1.cboProcessor.selectedIndex];
+   total = parseFloat(CompItems[formElement.value]);
+   orderDetails = "프로세서 : " + formElement.text;
+   orderDetails = orderDetails + " $" + CompItems[formElement.value] + "\n";
+
+   formElement = 
+      document.form1.cboHardDrive[document.form1.cboHardDrive.selectedIndex];
+   total = total + parseFloat(CompItems[formElement.value]);
+   orderDetails = orderDetails + "하드 드라이브 : " + formElement.text;
+   orderDetails = orderDetails + " $" + CompItems[formElement.value] + "\n";
+
+   formElement = document.form1.chkCDROM;
+   if (formElement.checked == true)
+   {
+      orderDetails = orderDetails + "CD-ROM : $" +
+         CompItems[formElement.value] + "\n";
+      total = total + parseFloat(CompItems[formElement.value]);
+   }
+
+   formElement = document.form1.chkDVD;
+   if (formElement.checked == true)
+   {
+      orderDetails = orderDetails + "DVD-ROM : $" + CompItems[formElement.value] + "\n";
+      total = total + parseFloat(CompItems[formElement.value]);
+   }
+
+   formElement = document.form1.chkScanner;
+   if (formElement.checked == true)
+   {
+      orderDetails = orderDetails + "스캐너 : $" + CompItems[formElement.value] + "\n";
+      total = total + parseFloat(CompItems[formElement.value]);
+   }
+
+   formElement = document.form1.radCase;
+   if (formElement[0].checked == true)
+   {
+      orderDetails = orderDetails + "데스크탑 케이스 : $" + CompItems[formElement[0].value];
+      total = total + parseFloat(CompItems[formElement[0].value]);
+   }
+   else if (formElement[1].checked == true)
+   {
+      orderDetails = orderDetails + "미니 타워 케이스 : $" +  CompItems[formElement[1].value];
+      total = total + parseFloat(CompItems[formElement[1].value]);
+   }
+   else 
+   {
+      orderDetails = orderDetails + "풀 타워 케이스 : $" + CompItems[formElement[2].value];
+      total = total + parseFloat(CompItems[formElement[2].value]);
+   }
+
+   orderDetails = orderDetails + "\n\n전체 주문 가격은 $" + total + "입니다";
+
+   document.form1.txtOrder.value = orderDetails;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM NAME=form1>
+<TABLE>
+<TR>
+<TD WIDTH=300>
+프로세서
+<BR>
+<SELECT NAME=cboProcessor>
+   <OPTION VALUE=100>MegaPro 1ghz</OPTION>
+   <OPTION VALUE=101>MegaPro 1.2</OPTION>
+   <OPTION VALUE=102>MegaPro 1.5ghz</OPTION>
+</SELECT>
+<BR><BR>
+하드 드라이브
+<BR>
+<SELECT NAME=cboHardDrive>
+   <OPTION VALUE=200>30gb</OPTION>
+   <OPTION VALUE=201>40gb</OPTION>
+   <OPTION VALUE=202>60gb</OPTION>
+</SELECT>
+<BR><BR>
+CD-ROM
+<INPUT TYPE="checkbox" NAME=chkCDROM VALUE="300">
+<BR>
+DVD-ROM
+<INPUT TYPE="checkbox" NAME=chkDVD VALUE="301">
+<BR>
+스캐너
+<INPUT TYPE="checkbox" NAME=chkScanner VALUE="302">
+<BR><BR>
+데스크탑 케이스
+<INPUT TYPE="radio" NAME=radCase CHECKED VALUE="400">
+<BR>
+미니 타워 케이스
+<INPUT TYPE="radio" NAME=radCase VALUE="401">
+<BR>
+풀 타워 케이스
+<INPUT TYPE="radio" NAME=radCase VALUE="402">
+<P>
+<INPUT TYPE="button" VALUE="Update" NAME=butUpdate onclick="updateOrderDetails()">
+</P>
+</TD>
+<TD>
+<TEXTAREA ROWS=20 COLS=35 ID=txtOrder NAME=txtOrder>
+</TEXTAREA>
+</TD>
+</TABLE>
+</FORM>
+</BODY>
+</HTML>

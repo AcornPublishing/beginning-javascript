@@ -1,0 +1,28 @@
+<HTML>
+<BODY>
+<SCRIPT LANGUAGE=JavaScript>
+
+var myShopping = new Array("Eggs","Milk","Potatoes","Cereal","Banana");
+
+var ord = prompt("알파벳 순으로 정렬하시려면 1을 입력하시고, 알파벳 역순으로 정렬하시려면 -1을 입력하세요",1);
+
+if (ord == 1)
+{
+myShopping.sort();
+
+document.write(myShopping.join("<BR>"));
+}
+else if (ord == -1)
+{
+myShopping.sort();
+myShopping.reverse();
+document.write(myShopping.join("<BR>"));
+}
+else
+{
+document.write("올바른 값을 입력해주세요");
+}
+</SCRIPT>
+</BODY>
+</HTML>
+

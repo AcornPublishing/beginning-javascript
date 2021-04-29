@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+function butNavigate_onclick()
+{
+   var urlData = "Name=" + escape("홍 길동") + "&Age=31";
+   window.location.href = "GetInfo.asp?" + urlData;
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<A HREF="GetInfo.asp?Name=홍%20길동&Age=31">정보 얻기</A>
+<FORM NAME=form1 ID=form1>
+   <INPUT TYPE="button"
+      VALUE="데이터 보내기"
+      NAME=butNavigate 
+      onclick="return butNavigate_onclick()">
+</FORM>
+</BODY>
+</HTML>

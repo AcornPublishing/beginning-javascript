@@ -1,0 +1,35 @@
+<HTML>
+<BODY>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+function convertToCentigrade(degFahren)
+{
+   var degCent;
+   degCent  = 5/9 * (degFahren - 32);
+   
+   return degCent;
+}
+
+var degFahren = new Array(212, 32, -459.67);
+var degCent = new Array();
+var loopCounter;
+
+for (loopCounter = 0; loopCounter <= 2; loopCounter++)
+{
+   degCent[loopCounter] = convertToCentigrade(degFahren[loopCounter]);
+}
+
+for (loopCounter = 2; loopCounter >= 0; loopCounter--)
+{
+   document.write("인덱스 번호 " + loopCounter + "의 값은 화씨 " + degFahren[loopCounter] + "도이고,");
+   document.write("이 값은 섭씨 " + degCent[loopCounter] +  "도입니다<BR>");
+
+}
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+
+

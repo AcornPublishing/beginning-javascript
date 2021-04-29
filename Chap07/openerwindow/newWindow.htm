@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+
+function butGetText_onclick() 
+{
+   document.form1.text1.value = window.opener.document.form1.text1.value;
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM NAME=form1>
+오프너 윈도우의 텍스트<BR>
+<INPUT TYPE="text" NAME=text1>
+<BR>
+<INPUT TYPE="button" VALUE="텍스트 가져오기" NAME=butGetText LANGUAGE=JavaScript
+   onclick="butGetText_onclick()">
+</FORM>
+</BODY>
+</HTML>

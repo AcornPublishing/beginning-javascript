@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+
+function myPara_onmouseout() 
+{
+   myPara.innerText = "마우스 커서를 올려보세요";
+   myPara.style.color = "Black"
+}
+
+function myPara_onmouseover() 
+{
+   myPara.innerText = "이럴수가, 죽이는데!!!";
+   myPara.style.color = "Red"
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<P ID="myPara" 
+   onmouseout="return myPara_onmouseout()" 
+   onmouseover="return myPara_onmouseover()">
+      마우스 커서를 올려보세요
+</P>
+</BODY>
+</HTML>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

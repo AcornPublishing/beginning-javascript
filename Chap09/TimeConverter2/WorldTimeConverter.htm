@@ -1,0 +1,97 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=javascript>
+
+var timeDiff;
+var selectedCity;
+var daylightSavingAdjust = 0;
+
+function window_onload()
+{
+   updateTimeZone();
+   window.setInterval("updateTime()",1000);
+}
+
+
+function updateTimeZone() 
+{
+   var lstCity = document.form1.lstCity;
+   timeDiff = lstCity.options[lstCity.selectedIndex].value;
+   selectedCity = lstCity.options[lstCity.selectedIndex].text;
+   updateTime();
+}
+
+function getTimeString(dateObject)
+{
+   var timeString;
+
+   var hours = dateObject.getHours();
+   if (hours < 10)
+      hours = "0" + hours;
+
+   var minutes = dateObject.getMinutes();
+   if (minutes < 10)
+      minutes = "0" + minutes;
+
+   var seconds = dateObject.getSeconds()
+   if (seconds < 10)
+      seconds = "0" + seconds;
+
+   timeString = hours + ":" + minutes + ":" + seconds;
+
+   return timeString;
+}
+
+function updateTime()
+{
+   var nowTime = new Date();
+
+   var resultsFrame = window.top.resultsFrame.document;
+
+   resultsFrame.open()
+   resultsFrame.write("현재 지역시 : " + getTimeString(nowTime) + "<BR>");
+   nowTime.setMinutes(nowTime.getMinutes() + nowTime.getTimezoneOffset() + 
+      parseInt(timeDiff) + daylightSavingAdjust);
+   resultsFrame.write(selectedCity + " 현재 시간 : " + getTimeString(nowTime));
+   resultsFrame.close();
+}
+
+function chkDaylightSaving_onclick()
+{
+   if (document.form1.chkDaylightSaving.checked)
+   {
+      daylightSavingAdjust = 60;
+   }
+   else
+   {
+      daylightSavingAdjust = 0;
+   }
+
+   updateTime();
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY LANGUAGE=JavaScript onload="return window_onload()">
+<FORM NAME=form1>
+<SELECT SIZE=5 NAME=lstCity LANGUAGE=JavaScript onchange="updateTimeZone();">
+<OPTION VALUE=60 SELECTED>베를린 
+<OPTION VALUE=330>봄베이
+<OPTION VALUE=0>런던
+<OPTION VALUE=180>모스크바
+<OPTION VALUE=-300>뉴욕 (EST) 
+<OPTION VALUE=60>파리 
+<OPTION VALUE=-480>샌프란시스코 (PST) 
+<OPTION VALUE=600>시드니 
+</SELECT>
+<P>
+선택한 도시는 현재 여름이며, 서머타임 일광 절약시를 사용하고 있음
+<INPUT TYPE="checkbox" NAME=chkDaylightSaving LANGUAGE=JavaScript
+   onclick="return chkDaylightSaving_onclick()">
+</P>
+</FORM>
+
+</BODY>
+</HTML>

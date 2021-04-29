@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>온라인 도서 정보</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+
+var detailsWindow;
+
+function showDetails(bookURL)
+{
+   detailsWindow = window.open(bookURL,"bookDetails","width=400,height=400");
+   detailsWindow.focus();
+   return false;
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<H2 ALIGN=center>온라인 도서 정보</H2>
+<P>
+자세한 정보를 보시려면 도서의 이미지를 클릭하십시오.
+</P>
+<STRONG>Beginning Active Server Pages 3</STRONG>
+<BR>
+<A NAME="begASPLink" HREF=""
+   onclick="return showDetails('beg_asp3_details.htm')">
+      <IMG SRC="beg_asp3.gif" BORDER=0>
+</A>
+<BR><BR>
+<STRONG>Professional JavaScript</STRONG>
+<BR>
+<A NAME="profJSLink" HREF=""
+   onclick="return showDetails('prof_js_details.htm')">
+      <IMG SRC="prof_js.gif" BORDER=0>
+</A>
+</BODY>
+</HTML>

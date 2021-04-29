@@ -1,0 +1,16 @@
+<HTML>
+<BODY>
+<SCRIPT LANGUAGE=JavaScript>
+
+var months = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug",
+                           "Sep","Oct","Nov","Dec");
+var nowDate = new Date();
+
+nowDate.setMonth(nowDate.getMonth() + 12);
+document.write("지금부터 12달 후의 날짜는 " + nowDate.getDate());
+document.write(" " + months[nowDate.getMonth()]);
+document.write(" " + nowDate.getFullYear() + "입니다");
+
+</SCRIPT>
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+<HTML>
+<BODY>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+function checkCharType(charToCheck)
+{
+   var returnValue = "O";
+   var charCode = charToCheck.charCodeAt(0);
+
+   if (charCode >= "A".charCodeAt(0) && charCode <= "Z".charCodeAt(0))
+   {
+      returnValue = "U";
+   }
+   else if (charCode >= "a".charCodeAt(0) && charCode <= "z".charCodeAt(0))
+   {
+      returnValue = "L";
+   }
+   else if (charCode >= "0".charCodeAt(0) && charCode <= "9".charCodeAt(0))
+   {
+      returnValue = "N";
+   }
+   return returnValue;
+}
+
+var myString = prompt("아무 텍스트나 입력해보세요","Hello World!");
+switch (checkCharType(myString))
+{
+   case "U":
+      document.write("첫번째 문자는 대문자입니다");
+      break;
+   case "L":
+      document.write("첫번째 문자가 소문자입니다");
+      break;
+   case "N":
+      document.write("첫번째 문자가 숫자입니다");
+      break;
+   default:
+      document.write("첫번째 문자가 알파벳이나 숫자가 아닙니다");
+}
+
+</SCRIPT>
+</BODY>
+</HTML>

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+
+function setHTML()
+{
+   var actOnTag = div1;
+
+   if (radTag[0].checked == true)
+   {
+      actOnTag = para1;
+   }
+
+   if (radInnerOuter[0].checked == true)
+   {
+      actOnTag.innerHTML = textarea1.value
+   }
+   else
+   {
+      actOnTag.outerHTML = textarea1.value;
+   }
+}
+
+function getHTML()
+{
+   var actOnTag = div1;
+
+   if (radTag[0].checked == true)
+   {
+      actOnTag = para1;
+   }
+
+   if (radInnerOuter[0].checked == true)
+   {
+      textarea1.value = actOnTag.innerHTML;
+   }
+   else
+   {
+      textarea1.value = actOnTag.outerHTML;
+   }
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<DIV ID="div1">
+   <P ID="para1">이것은 <I>단락</I> 입니다.</P>
+   <H2>DIV에 제목이 들어있습니다</H2>
+</DIV>
+
+<BR><TEXTAREA COLS=60 ROWS=10 ID=textarea1 NAME=textarea1></TEXTAREA>
+<BR>
+단락 <INPUT TYPE="radio" NAME="radTag" CHECKED>
+Div <INPUT TYPE="radio" NAME="radTag">
+<BR>
+InnerHTML <INPUT TYPE="radio" NAME="radInnerOuter" CHECKED>
+outerHTML <INPUT TYPE="radio" NAME="radInnerOuter">
+<P>
+<INPUT TYPE="button" VALUE="HTML 가져오기" NAME="bttnGetInnerText" 
+   onclick="getHTML()">
+<INPUT TYPE="button" VALUE="HTML 설정하기" NAME="bttnSetInnerText" 
+   onclick="setHTML()">
+</P>
+</BODY>
+</HTML>

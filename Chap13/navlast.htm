@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+</HEAD>
+<BODY>
+<H1 ID="Heading1">제목입니다</H1>
+<P ID="Paragraph1">단락에 있는 텍스트입니다</P>
+
+<SCRIPT LANGUAGE="Javascript">
+var HTMLElement;     // HTMLElement는 <HTML>의 참조를 저장
+var HeadingElement;  // HeadingElement는 <HEAD>의 참조를 저장
+var BodyElement;     // BodyElement는 <BODY>의 참조를 저장
+var H1Element;       // H1Element는 <H1>의 참조를 저장
+var PElement;        // PElement는 <P>의 참조를 저장
+
+HTMLElement = document.documentElement;
+
+HeadingElement = HTMLElement.firstChild;
+alert(HeadingElement.tagName);
+
+if(HeadingElement.nextSibling.nodeType==3)
+{
+	BodyElement = HeadingElement.nextSibling.nextSibling;
+}
+else
+{
+	BodyElement = HeadingElement.nextSibling;
+}
+alert(BodyElement.tagName);
+
+if(BodyElement.firstChild.nodeType==3)
+{
+	H1Element = BodyElement.firstChild.nextSibling;
+}
+else
+{
+	H1Element = BodyElement.firstChild;
+}
+alert(H1Element.tagName);
+H1Element.style.fontFamily = "궁서체";
+
+if(H1Element.nextSibling.nodeType==3)
+{
+	PElement = H1Element.nextSibling.nextSibling;
+}
+else
+{
+	PElement = H1Element.nextSibling;
+}
+alert(PElement.tagName);
+PElement.style.fontFamily = "궁서체";
+
+if(PElement.previousSibling.nodeType==3)
+{
+	H1Element = PElement.previousSibling.previousSibling
+}
+else
+{
+	H1Element = PElement.previousSibling
+}
+H1Element.style.fontFamily = "돋움체"
+</SCRIPT>
+</BODY>
+</HTML>

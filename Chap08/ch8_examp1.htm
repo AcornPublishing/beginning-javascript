@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+function splitAndReverseText(textAreaControl)
+{
+   var textToSplit = textAreaControl.value;
+   var textArray = textToSplit.split('\r\n');
+
+   var numberOfParts = 0;
+   numberOfParts = textArray.length;
+
+   var reversedString = "";
+   var indexCount;
+
+   for (indexCount = numberOfParts - 1; indexCount >= 0; indexCount--)
+   {
+      reversedString = reversedString + textArray[indexCount];
+      if (indexCount > 0)
+      {
+         reversedString = reversedString + "\r\n";
+      }
+   }
+
+   textAreaControl.value = reversedString;
+}
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM NAME=form1>
+<TEXTAREA ROWS=20 COLS=40 NAME=textarea1 WRAP=soft>라인 1
+라인 2
+라인 3
+라인 4</TEXTAREA>
+<BR>
+<INPUT TYPE="button" VALUE="라인 순서 반대로하기" NAME=buttonSplit
+   onclick="splitAndReverseText(document.form1.textarea1)">
+</FORM>
+</BODY>
+</HTML>

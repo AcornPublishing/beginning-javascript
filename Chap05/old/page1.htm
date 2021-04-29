@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE=javascript>
+
+function linkHrefChange_onclick()
+{
+	
+	location.href = "page2.htm";
+	return false;
+}
+
+function linkReplace_onclick()
+{
+	location.replace("page2.htm");
+	return false;
+}
+
+</SCRIPT>
+
+
+</HEAD>
+<BODY>
+
+<H2>This is Page 1</H2>
+
+<A	href="" 
+	name="linkReplace" 
+	onclick="return linkReplace_onclick()">
+	Goto Page 2 by replacing this page
+</A>
+<BR><BR>
+<A	href="" 
+	name="linkHrefChange" 
+	onclick="return linkHrefChange_onclick()">
+	Goto Page 2 by changing href
+</A>
+
+</BODY>
+</HTML>

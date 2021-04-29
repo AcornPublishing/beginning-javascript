@@ -1,0 +1,29 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE = JavaScript>
+   var localTime = new Date();
+</SCRIPT>
+</HEAD>
+<BODY>
+<H4>
+   UTC :
+   <SCRIPT LANGUAGE = JavaScript>
+      document.write(localTime.toUTCString());
+   </SCRIPT>
+</H4>
+<H4>
+   지역시 :
+   <SCRIPT LANGUAGE = JavaScript>
+      document.write(localTime.toLocaleString());
+   </SCRIPT>
+</H4>
+<H4>
+   지역시와 UTC의 차이 :
+   <SCRIPT LANGUAGE = JavaScript>
+      document.write(localTime.getTimezoneOffset());
+</SCRIPT>
+</H4>
+</BODY>
+</HTML>
+

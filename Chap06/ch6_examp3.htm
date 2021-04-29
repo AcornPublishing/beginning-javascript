@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+function myButton_onmouseup() 
+{
+   document.form1.myButton.value = "마우스 버튼을 떼었습니다"
+}
+
+function myButton_onmousedown() 
+{
+   document.form1.myButton.value = "마우스 버튼을 눌렀습니다"
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM NAME=form1>
+   <INPUT TYPE='button' NAME='myButton' VALUE='마우스 버튼을 떼었습니다' 
+   onmouseup="myButton_onmouseup()"
+   onmousedown="myButton_onmousedown()">
+</FORM>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+function convertToCentigrade(degFahren)
+{
+   var degCent;
+   degCent = degCent = 5/9 * (degFahren - 32);
+   
+   return degCent;
+}
+
+function butToCent_onclick()
+{
+   var CalcBox = document.form1.txtCalcBox;
+
+   if (isNaN(CalcBox.value) == true || CalcBox.value == "")
+   {
+      CalcBox.value = "오류 : 올바른 값이 아닙니다";
+   }
+   else
+   {
+      CalcBox.value = convertToCentigrade(CalcBox.value);
+   }
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM NAME=form1>
+<P>
+   <INPUT TYPE="text" NAME=txtCalcBox VALUE="0.0">
+</P>
+   <INPUT TYPE="button" 
+         VALUE="섭씨로 변환하기" 
+         NAME=butToCent
+         onclick="butToCent_onclick()">
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<BODY>
+<SCRIPT LANGUAGE=JavaScript>
+var myString = "Superman 웹 사이트에 오신 것을 환영합니다. "
+myString = myString + "Superman 웹 사이트는 www.superman.com 입니다. "
+myString = myString + "Superman에는 풍성한 볼거리들이 있습니다. 앞으로도 Superman을 많이 이용해 주십시오";
+
+var foundAtPosition = 0;
+var supermanCount = 0;
+
+while ( foundAtPosition != -1)
+{
+   foundAtPosition = myString.indexOf("Superman",foundAtPosition);
+   if (foundAtPosition != -1)
+   {
+      supermanCount++;
+      foundAtPosition++;
+   }
+}
+
+document.write("Superman이라는 단어는 " + supermanCount + "회 나옵니다");
+
+</SCRIPT>
+</BODY>
+</HTML>

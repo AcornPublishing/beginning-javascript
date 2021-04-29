@@ -1,0 +1,26 @@
+<HTML>
+<BODY>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+var degFahren = new Array(212, 32, -459.15);
+var degCent = new Array();
+var loopCounter;
+
+for (loopCounter = 0; loopCounter <= 2; loopCounter++)
+{
+   degCent[loopCounter] = 5/9 * (degFahren[loopCounter] - 32);
+}
+
+for (loopCounter = 2; loopCounter >= 0; loopCounter--)
+{
+   document.write("인덱스 번호 " + loopCounter + "의 값은 화씨 " + degFahren[loopCounter] + "도이고, ");
+   document.write(" 이 값은 섭씨 " + degCent[loopCounter] +  "도입니다<BR>");
+}
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+
+

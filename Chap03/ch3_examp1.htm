@@ -1,0 +1,24 @@
+<HTML>
+<BODY>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+var degFahren = prompt("섭씨로 바꿀 화씨 온도를 입력하세요",32);
+var degCent;
+
+degCent = 5/9 * (degFahren - 32);
+
+document.write("화씨 " + degFahren + "\xB0 는 섭씨 " + degCent + "\xB0 입니다<BR>");
+
+if (degCent < 0)
+{
+   document.write("물이 어는점보다 낮습니다");
+}
+
+if (degCent == 100)
+   document.write("물이 끓는점입니다");
+
+</SCRIPT>
+
+</BODY>
+</HTML>

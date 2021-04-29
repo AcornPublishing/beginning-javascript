@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+var timerID;
+function window_onload() 
+{
+   timerID = setTimeout("alert('시간이 끝났습니다!')",3000);
+   alert("타이머를 시작합니다");
+}
+
+function butStopTimer_onclick() 
+{
+   clearTimeout(timerID);
+   alert("타이머가 해제되었습니다");
+}
+
+</SCRIPT>
+</HEAD>
+<BODY LANGUAGE=JavaScript onload="window_onload()">
+<FORM NAME=form1>
+<INPUT TYPE="button" VALUE="타이머 해제하기" NAME=butStopTimer LANGUAGE=JavaScript
+   onclick="return butStopTimer_onclick()">
+</FORM>
+</BODY>
+</HTML>
+
+
+

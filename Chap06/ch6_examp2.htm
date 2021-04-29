@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+var numberOfClicks = 0;
+
+function myButton_onclick()
+{
+   numberOfClicks++;
+   window.document.form1.myButton.value = '버튼을 ' + numberOfClicks + 
+   '번 클릭하였습니다';
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM NAME=form1>
+   <INPUT TYPE='button' NAME='myButton' VALUE='버튼을 0번 클릭하였습니다' onclick="myButton_onclick()">
+</FORM>
+</BODY>
+</HTML>
+

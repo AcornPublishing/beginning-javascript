@@ -1,0 +1,38 @@
+<HTML>
+<HTML>
+<BODY>
+<SCRIPT LANGUAGE=JavaScript>
+
+var greeting;
+
+var nowDate = new Date();
+var nowHour = nowDate.getHours();
+var nowMinute = nowDate.getMinutes();
+var nowSecond = nowDate.getSeconds();
+
+if (nowMinute < 10)
+   nowMinute = "0" + nowMinute;
+
+if (nowSecond < 10)
+   nowSecond = "0" + nowSecond;
+
+if (nowHour < 12)
+{
+   greeting = "좋은 아침이네요!";
+}
+else if (nowHour < 17)
+{
+   greeting = "나른한 오후군요!";
+}
+else
+{
+   greeting = "즐거운 저녁이네요!";
+}
+   
+document.write("<H4>" + greeting + " 홍길동의 웹사이트에 오신 것을 환영합니다!</H4>");
+document.write("여러분의 컴퓨터에 설정된 시각은 현재 ");
+document.write(nowHour + ":" + nowMinute + ":" + nowSecond + " 입니다");
+
+</SCRIPT>
+</BODY>
+</HTML>

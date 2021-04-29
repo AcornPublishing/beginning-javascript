@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+
+var descriptions = new Array();
+descriptions[0] = "<P>웹 사이트에 추가한 내용들을 확인해 보세요</P>";
+descriptions[1] = "<P>저와 저의 웹 사이트에 대해 자세히 알아보세요</P>";
+descriptions[2] = "<P>재미있고 유용한 링크들을 확인해 보세요</P>";
+
+function showDescription(descriptionIndex)
+{
+	if (document.all)
+	{
+		DescriptionDiv.style.visibility = "visible";
+		DescriptionDiv.innerHTML = descriptions[descriptionIndex];
+	}
+	else
+	{
+		document.DescriptionDiv.visibility = "visible";
+		document.DescriptionDiv.document.open();
+		document.DescriptionDiv.document.write("<DIV class='DescriptionDivStyle'>");
+		document.DescriptionDiv.document.write(descriptions[descriptionIndex]);
+		document.DescriptionDiv.document.write("</DIV>");
+		document.DescriptionDiv.document.close();
+	}
+}
+
+function clearDescription()
+{
+	if (document.all)
+	{
+		DescriptionDiv.style.visibility = "hidden";
+	}
+	else
+	{
+		document.DescriptionDiv.visibility = "hidden";
+	}
+}
+</SCRIPT>
+<STYLE>
+
+		DIV
+		{
+			border-width: thin;
+			border-style: ridge;
+			border-color: red;
+			width: 250px;
+			height: 70px;
+			visibility: hidden;
+		}
+
+		.DescriptionDiv
+		{
+			position: absolute;
+			left: 120px;
+			top: 50px;
+
+		}
+</STYLE>
+
+</HEAD>
+<BODY>
+
+<A href="WhatsNew.htm"
+	onmouseover="showDescription(0)"
+	onmouseout="clearDescription()">
+	<IMG src="WhatsNew.jpg" border=0></A>
+<BR>
+<A href="AboutMe.htm"
+	onmouseover="showDescription(1)"
+	onmouseout="clearDescription()">
+	<IMG src="AboutMeButton.jpg" border=0></A>
+<BR>
+<A href="InterestingLinks.htm"
+	onmouseover="showDescription(2)"
+	onmouseout="clearDescription()">
+	<IMG src="InterestingLinks.jpg" border=0></A>
+
+<DIV id=DescriptionDiv name=DescriptionDiv class="DescriptionDiv">
+</DIV>
+
+</BODY>
+</HTML>

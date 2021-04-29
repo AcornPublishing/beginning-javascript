@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+function butRemoveWed_onclick() 
+{
+   if (document.form1.theDay.options[2].text == "수요일") 
+   {
+      document.form1.theDay.options[2] = null;
+   } 
+   else 
+   {
+      alert('리스트에 수요일이 없습니다!');
+   }
+}
+
+function butAddWed_onclick() 
+{
+   if (document.form1.theDay.options[2].text != "수요일") 
+   {
+      var indexCounter;
+      var days = document.form1.theDay;
+      var lastoption = new Option();
+      days.options[6] = lastoption;
+
+      for (indexCounter = 6;indexCounter > 2; indexCounter--)
+      {
+      days.options[indexCounter].text = days.options[indexCounter - 1].text;
+      days.options[indexCounter].value = days.options[indexCounter - 1].value;
+      }
+
+      var option = new Option("수요일",2);
+      days.options[2] = option;
+   }
+   else 
+   {
+      alert('수요일이 두 개 있는 것을 원하시지는 않겠죠?????');
+   }
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM NAME=form1>
+<SELECT NAME=theDay SIZE=5>
+   <OPTION VALUE=0 SELECTED>월요일
+   <OPTION VALUE=1>화요일
+   <OPTION VALUE=2>수요일
+   <OPTION VALUE=3>목요일
+   <OPTION VALUE=4>금요일
+   <OPTION VALUE=5>토요일
+   <OPTION VALUE=6>일요일
+</SELECT>
+<BR>
+<INPUT TYPE="button" VALUE="수요일 없애기" NAME=butRemoveWed 
+   onclick="butRemoveWed_onclick()">
+<INPUT TYPE="button" VALUE="수요일 넣기" NAME=butAddWed 
+   onclick="butAddWed_onclick()">
+<BR>
+</FORM>
+</BODY>
+</HTML>

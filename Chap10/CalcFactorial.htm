@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+
+function butCalculate_onclick()
+{
+   try
+   {
+      if (window.top.calcFactorial == null)
+         throw "올바른 프레임 셋에서 페이지를 로딩하지 않았습니다";
+
+      if (document.form1.txtNum1.value == "")
+         throw "!값을 입력해야만 계승을 계산할 수 있습니다";
+
+      if (isNaN(document.form1.txtNum1.value))
+         throw "!올바른 값을 입력하십시오";
+
+      if (document.form1.txtNum1.value < 0)
+         throw "!양수를 입력해야 합니다";
+
+      document.form1.txtResult.value =
+         window.parent.calcFactorial(document.form1.txtNum1.value);
+   }
+   catch(exception)
+   {
+      if (typeof(exception) == "string")
+      {
+         if (exception.charAt(0) == "!")
+         {
+            alert(exception.substr(1));
+            document.form1.txtNum1.focus();
+            document.form1.txtNum1.select();
+         }
+         else
+         {
+            alert(exception);
+         }
+      }
+      else
+      {
+         if (exception.description == null)
+         {
+            alert("발생한 오류는 " + exception.message)
+         }
+         else
+         {
+            alert("발생한 오류는 " + exception.description);
+         }
+      }
+   }
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM NAME="form1">
+   <INPUT TYPE="text" NAME=txtNum1 SIZE=3> 의 계승은 
+   <INPUT TYPE="text" NAME=txtResult SIZE=25> 입니다<BR>
+   <INPUT TYPE="button" VALUE="계승 계산"
+      NAME=butCalculate onclick="butCalculate_onclick()">
+</FORM>
+
+</BODY>
+</HTML>

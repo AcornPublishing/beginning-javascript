@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE=JavaScript>
+
+function form1_onsubmit() 
+{
+   var returnValue = false;
+
+   if (document.form1.txtName.value == "")
+   {
+      alert("이름을 입력하세요");
+      document.form1.txtName.focus();
+   }
+   else if (document.form1.txtEmail.value == "")
+   {
+      alert("전자 우편 주소를 입력하세요");
+      document.form1.txtEmail.focus();
+   }
+   else if (document.form1.txtaSuggestion.value == "")
+   {
+      alert("제안 사항을 입력하세요");
+      document.form1.txtaSuggestion.focus();
+   }
+   else
+   {
+      returnValue = true;
+   }
+
+   return returnValue;
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM ACTION="ReceiveComplexForm.asp"
+   METHOD=post 
+   NAME=form1 
+   onsubmit="return form1_onsubmit()">
+      <P>이름 : <INPUT NAME=txtName></P>
+      <P>전자우편 : <INPUT NAME=txtEmail></P>
+      성별 : <BR>
+      여 <INPUT TYPE="radio" CHECKED NAME=radGender VALUE=Female>
+      남 <INPUT TYPE="radio" NAME=radGender VALUE=Male> 
+      <BR><BR>
+      나이
+      <SELECT NAME=selAgeRange SIZE=1>
+         <OPTION VALUE=0_18 SELECTED>18세 이하</OPTION>
+         <OPTION VALUE=19_40>19 - 40</OPTION>
+         <OPTION VALUE=41_70>41 - 70</OPTION>
+         <OPTION VALUE=70+>70+</OPTION>
+      </SELECT>
+      <BR><BR>
+      답변을 원하시면 체크하십시오 
+      <INPUT NAME=chkResponse TYPE=checkbox VALUE=SendResponse>
+      <BR><BR>
+      제안 사항 <BR>
+      <TEXTAREA COLS=20 ROWS=10 NAME=txtaSuggestion WRAP=hard></TEXTAREA>
+      <BR><BR>
+      <P>
+      <INPUT NAME=submit1 TYPE=submit VALUE="제안 사항 보내기">
+      </P>
+</FORM>
+</BODY>
+</HTML>

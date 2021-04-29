@@ -1,0 +1,19 @@
+<HTML>
+<BODY>
+<SCRIPT Language=JavaScript>
+
+var myNumber = prompt("정수로 만들 수를 입력해주세요","");
+
+document.write("<H3>입력하신 수는 " + myNumber + "입니다</H3><BR>");
+document.write("<P>이 수를 정수화한 결과는 다음과 같습니다</P>");
+document.write("<TABLE WIDTH=150 BORDER=1>");
+document.write("<TR><TH>메소드</TH><TH>결과</TH></TR>");
+document.write("<TR><TD>parseInt()</TD><TD>"+ parseInt(myNumber) +"</TD></TR>");
+document.write("<TR><TD>ceil()</TD><TD>" + Math.ceil(myNumber) + "</TD></TR>");
+document.write("<TR><TD>floor()</TD><TD>"+ Math.floor(myNumber) + "</TD></TR>");
+document.write("<TR><TD>round()</TD><TD>" + Math.round(myNumber) +"</TD></TR>");
+document.write("</TABLE>")
+
+</SCRIPT>
+</BODY>
+</HTML>

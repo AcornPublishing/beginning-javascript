@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE=JavaScript>
+
+function butCheckForm_onclick()
+{
+   var myForm = document.form1;
+   if (myForm.txtAge.value == "" || myForm.txtName.value == "")
+   {
+      alert("모든 폼을 입력해 주십시오");
+      if (myForm.txtName.value == "")
+      {
+         myForm.txtName.focus();
+      }
+      else
+      {
+         myForm.txtAge.focus();
+      }
+   }
+   else
+   {
+      alert(myForm.txtName.value + "님, 성의껏 입력해 주셔서 감사합니다");
+   }
+}
+
+function txtAge_onblur()
+{
+   var txtAge = document.form1.txtAge;
+   if (isNaN(txtAge.value) == true)
+   {
+      alert("올바른 나이를 입력해 주십시오");
+      txtAge.focus();
+      txtAge.select();
+   }
+}
+
+function txtName_onchange() 
+{
+   window.status = "안녕하세요 " + document.form1.txtName.value + "님";
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM NAME=form1>
+   다음 항목을 입력해주세요:
+   <P>
+   이름:
+   <BR>
+   <INPUT TYPE="text" NAME=txtName onchange="txtName_onchange()">
+   <BR>
+   나이:
+   <BR>
+   <INPUT TYPE="text" NAME=txtAge onblur="txtAge_onblur()" SIZE=3 MAXLENGTH=3>
+   <BR>
+   <INPUT TYPE="button" VALUE="입력정보검사" NAME=butCheckForm 
+      onclick="butCheckForm_onclick()">
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,24 @@
+<HTML>
+<BODY>
+<SCRIPT LANGUAGE=JavaScript>
+
+try
+{
+   alert('try 절에 있는 코드입니다');
+   alert('오류가 없으므로 catch 절에 있는 코드를 실행하지 않습니다');
+}
+catch(exception)
+{
+   if (exception.description == null)
+   {
+      alert("Error is " + exception.message)
+   }
+   else
+   {
+      alert("Error is " + exception.description);
+   }
+}
+
+</SCRIPT>
+</BODY>
+</HTML>

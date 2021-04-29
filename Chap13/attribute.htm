@@ -1,0 +1,25 @@
+<HTML>
+<HEAD
+</HEAD>
+<BODY>
+<SCRIPT LANGUAGE=JavaScript>
+var newText;
+var newElem;
+
+newText = document.createTextNode("제목입니다")
+newElem = document.createElement("H1")
+newElem.setAttribute("align","center")
+newElem.appendChild(newText)
+document.body.appendChild(newElem)
+
+newText = document.createTextNode("단락에 있는 텍스트입니다")
+newElem = document.createElement("P")
+alert(newElem.getAttribute("align"))
+newElem.setAttribute("align","right")
+alert(newElem.getAttribute("align"))
+newElem.appendChild(newText)
+document.body.appendChild(newElem)
+</SCRIPT>
+</BODY>
+</HTML>
+
